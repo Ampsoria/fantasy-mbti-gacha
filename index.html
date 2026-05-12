@@ -12,11 +12,16 @@
 </head>
 <body>
   <div id="app">
-    <!-- Language Toggle -->
-    <button id="lang-toggle" class="lang-toggle" aria-label="Toggle Language">
-      <i data-lucide="globe" class="lang-icon"></i>
-      <span id="lang-text">EN</span>
-    </button>
+    <!-- Top Toggles -->
+    <div class="top-toggles">
+      <button id="theme-toggle" class="icon-toggle" aria-label="Toggle Theme">
+        <i data-lucide="moon" class="toggle-icon" id="theme-icon"></i>
+      </button>
+      <button id="lang-toggle" class="icon-toggle lang-toggle" aria-label="Toggle Language">
+        <i data-lucide="globe" class="toggle-icon"></i>
+        <span id="lang-text">EN</span>
+      </button>
+    </div>
 
     <canvas id="particles-canvas"></canvas>
 

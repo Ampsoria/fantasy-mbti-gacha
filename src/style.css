@@ -23,6 +23,24 @@
   --font-flavor: 'Crimson Text', serif;
 }
 
+[data-theme="light"] {
+  --bg-deep: #f7f3ee;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-glass: rgba(0, 0, 0, 0.05);
+  --text-primary: #1e191d;
+  --text-secondary: #4a454e;
+  --text-dim: #7a757e;
+  --gold: #b38600;
+  --gold-glow: rgba(179, 134, 0, 0.3);
+  --purple: #8b5cf6;
+  --purple-glow: rgba(139, 92, 246, 0.3);
+  --cyan: #e11d48;
+  --cyan-glow: rgba(225, 29, 72, 0.3);
+  --rarity-n: #5e6e7e;
+  --rarity-r: #1e5a99;
+  --rarity-sr: #8e2b88;
+}
+
 /* ═══ RESET & BASE ═══ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; overflow: hidden; }
@@ -46,35 +64,45 @@ body {
 }
 #particles-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.6; }
 
-/* ═══ LANGUAGE TOGGLE ═══ */
-.lang-toggle {
+/* ═══ TOP TOGGLES ═══ */
+.top-toggles {
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
   z-index: 100;
+  display: flex;
+  gap: 0.8rem;
+}
+.icon-toggle {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 30px;
   padding: 0.5rem 1rem;
   color: var(--text-primary);
   font-family: var(--font-display);
-  font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
 }
-.lang-toggle:hover {
+.icon-toggle:hover {
   background: rgba(255, 255, 255, 0.15);
   border-color: var(--purple-glow);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(155, 109, 255, 0.2);
 }
-.lang-icon { width: 18px; height: 18px; stroke-width: 2px; }
+.toggle-icon { width: 18px; height: 18px; stroke-width: 2px; }
+[data-theme="light"] .icon-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+[data-theme="light"] #app::after {
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(255,255,255,0.7) 100%);
+}
 
 /* ═══ SCREENS ═══ */
 .screen {
@@ -383,7 +411,8 @@ body {
   .keyboard-hint { display: none; }
   .gacha-card { width: 240px; height: 340px; margin-top: -5vh; }
   .gacha-char-name { font-size: 1.1rem; }
-  .lang-toggle { top: 1rem; right: 1rem; padding: 0.4rem 0.8rem; }
+  .top-toggles { top: 1rem; right: 1rem; }
+  .icon-toggle { padding: 0.4rem 0.8rem; }
 }
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }

@@ -18,9 +18,10 @@
       "chapter": "The Whispering Library",
       "scenario": "Deep in the Royal Archives, you discover a crumbling journal wedged behind a shelf. Its pages describe a ritual that was supposedly erased from history — one that could reshape the wards protecting the capital.",
       "choices": [
-        { "text": "Compare the journal's claims against three independent historical sources before drawing any conclusions.", "weights": { "S": 1 } },
-        { "text": "The implications are staggering. If even half of this is true, the kingdom's entire defense doctrine is built on a lie.", "weights": { "N": 1 } },
-        { "text": "Transcribe the ritual word-for-word and catalog it properly. Preservation comes before interpretation.", "weights": { "S": 1 } }
+        { "text": "Cross-reference the ritual with at least three other historical texts before jumping to any conclusions.", "weights": { "S": 1 } },
+        { "text": "The implications are staggering. If even half of this is true, the kingdom's entire defense paradigm is built on a lie.", "weights": { "N": 1 } },
+        { "text": "Copy the ritual word-for-word and file it properly. Preservation comes before interpretation.", "weights": { "S": 1 } },
+        { "text": "Attempt a minor part of the ritual to see if it grants you new visions or undiscovered arcane power.", "weights": { "N": 1 } }
       ]
     },
     {
@@ -53,8 +54,10 @@
       "chapter": "The Campfire Vigil",
       "scenario": "Night falls over the Ashenmoor. Your party sets camp beneath ancient oaks. The fire crackles, and your companions begin to unwind — someone pulls out a flask, another starts tuning a lute.",
       "choices": [
-        { "text": "This is what you live for. Lead the group in a round of songs and ghost stories until the embers die.", "weights": { "E": 1 } },
-        { "text": "Volunteer for first watch. You'll sit at the camp's edge, alone with the stars and your thoughts.", "weights": { "I": 1 } }
+        { "text": "This is what living is about. Lead the group in songs and ghost stories until the embers die.", "weights": { "E": 1 } },
+        { "text": "Volunteer for first watch. You sit at the edge of the light, alone with the stars and your thoughts.", "weights": { "I": 1 } },
+        { "text": "Grab your instrument and join the bard, creating a joyous atmosphere for everyone.", "weights": { "E": 1 } },
+        { "text": "Find a quiet spot by the tree, listening to your companions' banter without interrupting, absorbing the peace.", "weights": { "I": 1 } }
       ]
     },
     {
@@ -75,9 +78,10 @@
       "chapter": "The Prisoner's Bargain",
       "scenario": "Your forces have captured an enemy commander — a woman named Serya. She offers the location of a hidden weapons cache that could end the war in weeks. In exchange, she wants safe passage home to her daughter.",
       "choices": [
-        { "text": "Take the deal. Ending the war faster saves thousands of lives. The math is clear.", "weights": { "T": 1 } },
-        { "text": "Refuse. Your soldiers died capturing her. Releasing her spits on their sacrifice.", "weights": { "F": 1 } },
-        { "text": "Verify the intelligence first with a small scouting party. If it's real, honor the deal — trust must go both ways.", "weights": { "T": 1 } }
+        { "text": "Take the deal. Ending the war sooner saves thousands of lives. The math is clear.", "weights": { "T": 1 } },
+        { "text": "Refuse. Your soldiers died to capture her. Letting her go is an insult to their sacrifice.", "weights": { "F": 1 } },
+        { "text": "Verify the intelligence first with a small scout team. If true, honor the deal — trust requires symmetry.", "weights": { "T": 1 } },
+        { "text": "Ask her about her daughter. Try to understand the feelings and pain of a mother before deciding.", "weights": { "F": 1 } }
       ]
     },
     {
@@ -98,8 +102,10 @@
       "chapter": "The Grand Council",
       "scenario": "The Council of Nine convenes to decide the fate of the borderlands. You've been granted a seat and a voice. The chamber is grand — marble columns, burning braziers, and the weight of centuries of politics.",
       "choices": [
-        { "text": "Rise and speak with fire. Lock eyes with every councillor. Your conviction will move them.", "weights": { "E": 1 } },
-        { "text": "Pass a meticulously written proposal to the High Arbiter. Let the strength of your argument speak without theatrics.", "weights": { "I": 1 } }
+        { "text": "Stand and deliver a fiery oration. Meet the eyes of every councilor. Your passion will sway them.", "weights": { "E": 1 } },
+        { "text": "Pass a meticulously written proposal to the High Justiciar. Let the strength of your logic do the work without the theatrics.", "weights": { "I": 1 } },
+        { "text": "Gather allies in the hall before the session begins to publicly build a base of support.", "weights": { "E": 1 } },
+        { "text": "Calmly listen to all the council's proposals first, then offer a comprehensive conclusion at the end.", "weights": { "I": 1 } }
       ]
     },
     {
@@ -132,9 +138,10 @@
       "chapter": "The Final Chamber",
       "scenario": "This is it. Beyond this door lies the artifact that started it all — the Shard of Beginnings. Your party is battered but unbroken. The door is ancient, carved with warnings in a dead language. You can hear something breathing on the other side.",
       "choices": [
-        { "text": "One last check: formation, potions, escape route. We've come too far to fail on discipline now.", "weights": { "J": 1 } },
+        { "text": "One last check: formations, potions, escape routes. We've come too far to fail due to lack of discipline now.", "weights": { "J": 1 } },
         { "text": "Kick the door open. You didn't survive this dungeon by being cautious — you survived by being relentless.", "weights": { "P": 1 } },
-        { "text": "Place your hand on the carvings and read them aloud. If the door warns you, it respects you enough to give you a choice.", "weights": { "P": 1 } }
+        { "text": "Place your hand on the carvings and read them aloud. If the door is warning you, it respects you enough to offer a choice.", "weights": { "P": 1 } },
+        { "text": "Map the dungeon in your mind to find an escape route in advance. Prepare spells and weapons for immediate use.", "weights": { "J": 1 } }
       ]
     }
   ],

@@ -722,26 +722,73 @@ $("btn-save").addEventListener("click", async () => {
   
   try {
     const canvas = await html2canvas(card, {
-      backgroundColor: "#111116",
+      backgroundColor: document.documentElement.getAttribute("data-theme") === "light" ? "#f7f3ee" : "#111116",
       scale: 2, // High resolution
       useCORS: true,
       logging: false
     });
     
-    const dataUrl = canvas.toDataURL("image/png");
-    const a = document.createElement("a");
-    a.href = dataUrl;
-    a.download = `FBTI_${pendingResult?.character?.name || "Result"}.png`;
-    a.click();
+    canvas.toBlob(async (blob) => {
+      if (!blob) throw new Error("Canvas to Blob failed");
+      
+      const fileName = `FBTI_${pendingResult?.character?.name || "Result"}.png`;
+      const file = new File([blob], fileName, { type: "image/png" });
+      
+      // Try Web Share API first (Mobile friendly)
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            title: "My Fantasy MBTI Result",
+            files: [file]
+          });
+          btn.innerHTML = origText;
+          btn.style.opacity = "1";
+          btn.style.pointerEvents = "auto";
+          return;
+        } catch (e) {
+          console.log("Share cancelled or failed", e);
+        }
+      }
+      
+      // Fallback for Desktop/Unsupported browsers
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      btn.innerHTML = origText;
+      btn.style.opacity = "1";
+      btn.style.pointerEvents = "auto";
+    }, "image/png");
+    
   } catch (err) {
     console.error("Save failed", err);
     alert(currentLang === "th" ? "เกิดข้อผิดพลาดในการบันทึกภาพ" : "Failed to save image.");
-  } finally {
     btn.innerHTML = origText;
     btn.style.opacity = "1";
     btn.style.pointerEvents = "auto";
   }
 });
+
+// ─── Theme Toggle ─────────────────────────────────────────
+const themeToggle = $("theme-toggle");
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      $("theme-icon").setAttribute("data-lucide", "moon");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      $("theme-icon").setAttribute("data-lucide", "sun");
+    }
+    createIcons({ icons });
+  });
+}
 
 // ─── Initialization ─────────────────────────────────────────
 initParticles();
