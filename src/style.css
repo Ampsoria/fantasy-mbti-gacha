@@ -400,16 +400,18 @@ body {
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 480px) {
-  .quiz-container { padding: 1.2rem; max-height: 85vh; margin-top: -8vh; }
+  .screen { align-items: flex-start; padding-top: 10vh; }
+  .landing-content { padding-top: 2vh; }
+  .quiz-container { padding: 1.2rem; max-height: 80vh; margin-top: 0; }
   .scenario-text { font-size: 0.95rem; padding: 0.8rem; margin-bottom: 1rem; }
   .choices-grid { gap: 0.6rem; }
-  .choice-btn { padding: 0.75rem 0.8rem; font-size: 0.85rem; }
+  .choice-btn { padding: 0.75rem 0.8rem; font-size: 0.85rem; text-align: left; }
   .choice-label { min-width: 24px; height: 24px; font-size: 0.7rem; }
-  .result-container { padding: 1rem; margin-top: -5vh; }
+  .result-container { padding: 1rem; margin-top: 0; }
   .char-name { font-size: 1.4rem; }
   .chapter-title { font-size: 1rem; }
   .keyboard-hint { display: none; }
-  .gacha-card { width: 240px; height: 340px; margin-top: -5vh; }
+  .gacha-card { width: 240px; height: 340px; margin-top: 0; }
   .gacha-char-name { font-size: 1.1rem; }
   .top-toggles { top: 1rem; right: 1rem; }
   .icon-toggle { padding: 0.4rem 0.8rem; }

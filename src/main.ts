@@ -781,10 +781,10 @@ if (themeToggle) {
     const isLight = document.documentElement.getAttribute("data-theme") === "light";
     if (isLight) {
       document.documentElement.removeAttribute("data-theme");
-      $("theme-icon").setAttribute("data-lucide", "moon");
+      themeToggle.innerHTML = '<i data-lucide="moon" class="toggle-icon"></i>';
     } else {
       document.documentElement.setAttribute("data-theme", "light");
-      $("theme-icon").setAttribute("data-lucide", "sun");
+      themeToggle.innerHTML = '<i data-lucide="sun" class="toggle-icon"></i>';
     }
     createIcons({ icons });
   });
