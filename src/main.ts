@@ -715,42 +715,67 @@ $("btn-save").addEventListener("click", async () => {
   
   const btn = $("btn-save");
   const origText = btn.innerHTML;
-  btn.innerHTML = `<i data-lucide="hourglass" class="btn-icon"></i> <span data-i18n="result.saving">${t("result.saving")}</span>`;
+  const resetBtn = () => {
+    btn.innerHTML = origText;
+    btn.style.opacity = "1";
+    btn.style.pointerEvents = "auto";
+    createIcons({ icons });
+  };
+
+  btn.innerHTML = `<i data-lucide="hourglass" class="btn-icon"></i> <span>${t("result.saving")}</span>`;
   createIcons({ icons });
   btn.style.opacity = "0.7";
   btn.style.pointerEvents = "none";
   
   try {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const canvas = await html2canvas(card, {
       backgroundColor: document.documentElement.getAttribute("data-theme") === "light" ? "#f7f3ee" : "#111116",
-      scale: 2, // High resolution
+      scale: isMobile ? 1.5 : 2,
       useCORS: true,
-      logging: false
+      allowTaint: true,
+      logging: false,
     });
     
-    canvas.toBlob(async (blob) => {
-      if (!blob) throw new Error("Canvas to Blob failed");
-      
-      const fileName = `FBTI_${pendingResult?.character?.name || "Result"}.png`;
-      const file = new File([blob], fileName, { type: "image/png" });
-      
-      // Try Web Share API first (Mobile friendly)
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-        try {
-          await navigator.share({
-            title: "My Fantasy MBTI Result",
-            files: [file]
-          });
-          btn.innerHTML = origText;
-          btn.style.opacity = "1";
-          btn.style.pointerEvents = "auto";
+    const fileName = `FBTI_${pendingResult?.character?.name || "Result"}.png`;
+
+    // Method 1: Web Share API (best for mobile)
+    if (isMobile && navigator.share) {
+      try {
+        const blob = await new Promise<Blob>((resolve, reject) => {
+          canvas.toBlob((b) => b ? resolve(b) : reject(new Error("toBlob failed")), "image/png");
+        });
+        const file = new File([blob], fileName, { type: "image/png" });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({ title: "My Fantasy MBTI Result", files: [file] });
+          resetBtn();
           return;
-        } catch (e) {
-          console.log("Share cancelled or failed", e);
         }
+      } catch (e) {
+        console.log("Share failed, falling back", e);
       }
-      
-      // Fallback for Desktop/Unsupported browsers
+    }
+
+    // Method 2: Open in new tab so user can long-press to save (mobile)
+    if (isMobile) {
+      const dataUrl = canvas.toDataURL("image/png");
+      const w = window.open();
+      if (w) {
+        w.document.write(`<html><head><title>${fileName}</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;background:#111}</style></head><body><img src="${dataUrl}" style="max-width:100%;height:auto"/></body></html>`);
+        w.document.close();
+      } else {
+        const a = document.createElement("a");
+        a.href = dataUrl;
+        a.download = fileName;
+        a.click();
+      }
+      resetBtn();
+      return;
+    }
+
+    // Method 3: Direct download (Desktop)
+    canvas.toBlob((blob) => {
+      if (!blob) return;
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
@@ -759,18 +784,13 @@ $("btn-save").addEventListener("click", async () => {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      
-      btn.innerHTML = origText;
-      btn.style.opacity = "1";
-      btn.style.pointerEvents = "auto";
+      resetBtn();
     }, "image/png");
     
   } catch (err) {
     console.error("Save failed", err);
-    alert(currentLang === "th" ? "เกิดข้อผิดพลาดในการบันทึกภาพ" : "Failed to save image.");
-    btn.innerHTML = origText;
-    btn.style.opacity = "1";
-    btn.style.pointerEvents = "auto";
+    alert(currentLang === "th" ? "กดค้างที่รูปเพื่อบันทึกแทนได้ครับ" : "Long-press the image to save instead.");
+    resetBtn();
   }
 });
 
