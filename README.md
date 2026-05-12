@@ -50,4 +50,4 @@ This grimoire is configured to be deployed easily to **GitHub Pages**.
 3. Push the `dist` contents to your `gh-pages` branch, or allow GitHub Actions to build and deploy for you.
 
 ---
-*Created with dark magic and ancient code.* 🩸✨
+*Made by Ampsoria* 🩸✨
