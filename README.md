@@ -4,7 +4,7 @@
   <h1>🌑 Echoes of the Arcane (FBTI) 🌑</h1>
   <p><strong>A Dark Fantasy MBTI Personality Test & Gacha Game</strong></p>
 
-  [![Live Demo](https://img.shields.io/badge/Enter_The_Void-Live_Demo-8b0021?style=for-the-badge&logo=github)](https://ampsoria.github.io/FBTI/)
+  [![Live Demo](https://img.shields.io/badge/Enter_The_Void-Live_Demo-8b0021?style=for-the-badge&logo=github)]([https://ampsoria.github.io/FBTI/](https://ampsoria.github.io/fantasy-mbti-gacha/))
   [![Language](https://img.shields.io/badge/Language-TH_/_EN-4a0e4e?style=for-the-badge)](#)
 </div>
 
