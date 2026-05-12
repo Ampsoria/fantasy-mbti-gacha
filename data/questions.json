@@ -1,0 +1,145 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "axis": "EI",
+      "chapter": "The Tavern at Dusk",
+      "scenario": "After weeks on the road, your party arrives at the infamous Gilded Lantern tavern. The air is thick with pipe smoke and laughter. A bard is mid-song, and the barkeeper waves you over. The place is alive.",
+      "choices": [
+        { "text": "Slide into the nearest crowded table, buy a round for everyone, and trade war stories until dawn.", "weights": { "E": 1 } },
+        { "text": "Nod politely to the barkeeper, order a meal to your room, and spend the evening journaling by candlelight.", "weights": { "I": 1 } },
+        { "text": "Find a seat near the bard — close enough to enjoy the music, far enough to avoid conversation.", "weights": { "I": 1 } },
+        { "text": "Challenge the loudest table to a drinking contest. Reputation is forged in moments like these.", "weights": { "E": 1 } }
+      ]
+    },
+    {
+      "id": 2,
+      "axis": "SN",
+      "chapter": "The Whispering Library",
+      "scenario": "Deep in the Royal Archives, you discover a crumbling journal wedged behind a shelf. Its pages describe a ritual that was supposedly erased from history — one that could reshape the wards protecting the capital.",
+      "choices": [
+        { "text": "Compare the journal's claims against three independent historical sources before drawing any conclusions.", "weights": { "S": 1 } },
+        { "text": "The implications are staggering. If even half of this is true, the kingdom's entire defense doctrine is built on a lie.", "weights": { "N": 1 } },
+        { "text": "Transcribe the ritual word-for-word and catalog it properly. Preservation comes before interpretation.", "weights": { "S": 1 } }
+      ]
+    },
+    {
+      "id": 3,
+      "axis": "TF",
+      "chapter": "The River Dispute",
+      "scenario": "Two allied villages — one upstream, one downstream — are at each other's throats over water rights during a drought. The upstream village diverted the river to save their crops, leaving the downstream village dry. Both elders kneel before you, begging for justice.",
+      "choices": [
+        { "text": "Calculate each village's water needs based on population and crop yield. Divide the flow proportionally — fairness is mathematical.", "weights": { "T": 1 } },
+        { "text": "Sit both elders down for supper together. They were childhood friends once. Remind them of that before any ruling.", "weights": { "F": 1 } },
+        { "text": "The upstream village acted first out of desperation, not malice. Acknowledge their pain, but restore partial flow immediately.", "weights": { "F": 1 } },
+        { "text": "Commission an irrigation engineer. Emotion won't solve a logistics problem — infrastructure will.", "weights": { "T": 1 } }
+      ]
+    },
+    {
+      "id": 4,
+      "axis": "JP",
+      "chapter": "The Dragon's Threshold",
+      "scenario": "Your party stands at the mouth of Cindervault — the ancient dragon Vaelthrix's lair. Smoke curls from the darkness within. Your scout reports two entry paths: the main tunnel and a narrow crack in the eastern wall.",
+      "choices": [
+        { "text": "Review the plan one final time. Assign roles: vanguard, support, flanker. Synchronize signals. Leave nothing to chance.", "weights": { "J": 1 } },
+        { "text": "Plans are for people who've never fought a dragon. Read the situation as it unfolds and react.", "weights": { "P": 1 } },
+        { "text": "Split the party — half through each entrance. Maximize tactical coverage with a coordinated pincer strike.", "weights": { "J": 1 } },
+        { "text": "Whisper to the darkness at the cave's mouth: 'We are not here to fight. We are here to listen.'", "weights": {}, "isEasterEgg": true }
+      ]
+    },
+    {
+      "id": 5,
+      "axis": "EI",
+      "chapter": "The Campfire Vigil",
+      "scenario": "Night falls over the Ashenmoor. Your party sets camp beneath ancient oaks. The fire crackles, and your companions begin to unwind — someone pulls out a flask, another starts tuning a lute.",
+      "choices": [
+        { "text": "This is what you live for. Lead the group in a round of songs and ghost stories until the embers die.", "weights": { "E": 1 } },
+        { "text": "Volunteer for first watch. You'll sit at the camp's edge, alone with the stars and your thoughts.", "weights": { "I": 1 } }
+      ]
+    },
+    {
+      "id": 6,
+      "axis": "SN",
+      "chapter": "The Merchant's Gambit",
+      "scenario": "In a shadowed market stall, a cloaked merchant presents a sealed obsidian box. 'Inside is something you've been searching for your entire life,' she whispers. 'Fifty gold. No returns. No questions.'",
+      "choices": [
+        { "text": "Demand she open it first. You don't pay for promises — you pay for proof.", "weights": { "S": 1 } },
+        { "text": "Hand over the gold without hesitation. Some things are worth believing in.", "weights": { "N": 1 } },
+        { "text": "Examine the box itself — the craftsmanship, the weight, the seal. The container tells you as much as the contents.", "weights": { "S": 1 } },
+        { "text": "Ask her how she knew what you were searching for. The real mystery isn't in the box — it's her.", "weights": { "N": 1 } }
+      ]
+    },
+    {
+      "id": 7,
+      "axis": "TF",
+      "chapter": "The Prisoner's Bargain",
+      "scenario": "Your forces have captured an enemy commander — a woman named Serya. She offers the location of a hidden weapons cache that could end the war in weeks. In exchange, she wants safe passage home to her daughter.",
+      "choices": [
+        { "text": "Take the deal. Ending the war faster saves thousands of lives. The math is clear.", "weights": { "T": 1 } },
+        { "text": "Refuse. Your soldiers died capturing her. Releasing her spits on their sacrifice.", "weights": { "F": 1 } },
+        { "text": "Verify the intelligence first with a small scouting party. If it's real, honor the deal — trust must go both ways.", "weights": { "T": 1 } }
+      ]
+    },
+    {
+      "id": 8,
+      "axis": "JP",
+      "chapter": "The Outpost Commander",
+      "scenario": "The king grants you command of Fort Dawnwatch — a remote outpost on the empire's northern border. Morale is low, supplies are inconsistent, and the garrison hasn't seen a real commander in months.",
+      "choices": [
+        { "text": "Day one: establish a strict rotation — patrols, drills, supply audits, daily briefings at dawn. Structure breeds discipline.", "weights": { "J": 1 } },
+        { "text": "Spend the first week observing. Talk to every soldier. Understand the culture before imposing your own.", "weights": { "P": 1 } },
+        { "text": "Post a clear set of standing orders, then give your lieutenants freedom to execute. Micromanagement kills initiative.", "weights": { "P": 1 } },
+        { "text": "Create a detailed 90-day improvement plan with measurable milestones for readiness, morale, and supply.", "weights": { "J": 1 } }
+      ]
+    },
+    {
+      "id": 9,
+      "axis": "EI",
+      "chapter": "The Grand Council",
+      "scenario": "The Council of Nine convenes to decide the fate of the borderlands. You've been granted a seat and a voice. The chamber is grand — marble columns, burning braziers, and the weight of centuries of politics.",
+      "choices": [
+        { "text": "Rise and speak with fire. Lock eyes with every councillor. Your conviction will move them.", "weights": { "E": 1 } },
+        { "text": "Pass a meticulously written proposal to the High Arbiter. Let the strength of your argument speak without theatrics.", "weights": { "I": 1 } }
+      ]
+    },
+    {
+      "id": 10,
+      "axis": "SN",
+      "chapter": "The Dungeon Rune",
+      "scenario": "Three levels deep into the Hollowspire dungeon, your torchlight catches something on the wall — an ancient rune, older than the dungeon itself. It pulses with a faint violet glow, and the air around it hums with a frequency you can feel in your teeth.",
+      "choices": [
+        { "text": "Sketch the rune precisely in your field journal. Note its dimensions, position relative to the corridor, and luminosity cycle.", "weights": { "S": 1 } },
+        { "text": "Press your palm against it. Ancient things don't glow for no reason — it's been waiting for someone.", "weights": { "N": 1 } },
+        { "text": "Mark its location on your map and move on. The mission comes first; you can study it on the way back.", "weights": { "S": 1 } },
+        { "text": "Close your eyes and listen. Not with your ears — with the space behind your thoughts, where language hasn't been invented yet.", "weights": {}, "isEasterEgg": true }
+      ]
+    },
+    {
+      "id": 11,
+      "axis": "TF",
+      "chapter": "The Cursed Companion",
+      "scenario": "Your oldest companion — the one who saved your life in the Thornmarch — has been cursed by a dying witch. The only known cure is Moonpetal, a flower that grows exclusively in the sacred groves of the neutral Elderkin. Taking it would violate their sovereignty and likely trigger a war.",
+      "choices": [
+        { "text": "Search for an alternative. Consult every healer, every forbidden text. A war would cost thousands of lives for one.", "weights": { "F": 1 } },
+        { "text": "Take the flower. You owe them your life — and no treaty is worth more than that debt.", "weights": { "T": 1 } },
+        { "text": "Negotiate with the Elderkin directly. Offer something of equal value. There's always a deal to be made.", "weights": { "T": 1 } },
+        { "text": "Stay by their side, even if you can't save them. Some things matter more than a cure.", "weights": { "F": 1 } }
+      ]
+    },
+    {
+      "id": 12,
+      "axis": "JP",
+      "chapter": "The Final Chamber",
+      "scenario": "This is it. Beyond this door lies the artifact that started it all — the Shard of Beginnings. Your party is battered but unbroken. The door is ancient, carved with warnings in a dead language. You can hear something breathing on the other side.",
+      "choices": [
+        { "text": "One last check: formation, potions, escape route. We've come too far to fail on discipline now.", "weights": { "J": 1 } },
+        { "text": "Kick the door open. You didn't survive this dungeon by being cautious — you survived by being relentless.", "weights": { "P": 1 } },
+        { "text": "Place your hand on the carvings and read them aloud. If the door warns you, it respects you enough to give you a choice.", "weights": { "P": 1 } }
+      ]
+    }
+  ],
+  "easter_egg_indices": {
+    "question_4_choice_3": "Whisper to the darkness — an act of surrender, not combat.",
+    "question_10_choice_3": "Listen with the space behind your thoughts — transcending the axes entirely."
+  }
+}

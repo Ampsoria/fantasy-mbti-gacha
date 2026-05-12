@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fantasy MBTI — Discover Your Inner Archetype</title>
+  <meta name="description" content="Embark on a fantasy quest to discover your MBTI personality archetype. Answer immersive RPG scenarios and summon your destiny character." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+</head>
+<body>
+  <div id="app">
+    <!-- Language Toggle -->
+    <button id="lang-toggle" class="lang-toggle" aria-label="Toggle Language">
+      <i data-lucide="globe" class="lang-icon"></i>
+      <span id="lang-text">EN</span>
+    </button>
+
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ═══ SCREEN 1: LANDING ═══ -->
+    <section id="screen-landing" class="screen active">
+      <div class="landing-content">
+        <div class="logo-glow"></div>
+        <span class="title-fantasy" data-i18n="landing.subtitle">The Fantasy MBTI Assessment</span>
+        <h1 class="title-main" data-i18n="landing.title">ECHOES OF<br>THE ARCANE</h1>
+        <p class="subtitle-text" data-i18n="landing.desc">Discover your fantasy archetype. Answer 12 situational questions and unlock your fate.</p>
+        <div class="rarity-badges">
+          <span class="badge badge-n" data-i18n="rarity.common">Common</span>
+          <span class="badge badge-r" data-i18n="rarity.rare">Rare</span>
+          <span class="badge badge-sr" data-i18n="rarity.sr">Super Rare</span>
+          <span class="badge badge-ssr" data-i18n="rarity.secret">Secret</span>
+        </div>
+        <button class="btn-primary btn-pulse" id="btn-start">
+          <i data-lucide="sparkles" class="btn-icon"></i> <span data-i18n="landing.start">BEGIN YOUR QUEST</span>
+        </button>
+        <button id="btn-resume" class="btn-secondary btn-resume">
+          <i data-lucide="book-open" class="btn-icon"></i>
+          <span data-i18n="landing.resume">Continue Quest</span>
+        </button>
+        <p class="hint-text" data-i18n="landing.hint">24 unique characters await • Will you find the hidden one?</p>
+      </div>
+    </section>
+
+    <!-- ═══ SCREEN 2: QUIZ ═══ -->
+    <section id="screen-quiz" class="screen">
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <div class="progress-bar">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+          <div class="progress-text">
+            <span id="question-counter">1 / 12</span>
+            <span id="axis-label" class="axis-badge"></span>
+          </div>
+          <div id="progress-dots" class="progress-dots"></div>
+        </div>
+
+        <div id="quiz-body" class="quiz-body">
+          <div class="chapter-header">
+            <span id="axis-icon" class="chapter-icon">🧭</span>
+            <p id="chapter-number" class="chapter-number">— I —</p>
+            <h2 id="chapter-title" class="chapter-title">The Tavern at Dusk</h2>
+          </div>
+          <p id="scenario-text" class="scenario-text"></p>
+          <div id="choices-container" class="choices-container"></div>
+          <p class="keyboard-hint" data-i18n="quiz.keyboard_hint">Press <kbd>A</kbd>–<kbd>D</kbd> or <kbd>1</kbd>–<kbd>4</kbd> to choose</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SCREEN 3: SUMMONING / GACHA REVEAL ═══ -->
+    <section id="screen-summoning" class="screen">
+      <canvas id="reveal-particles" class="reveal-particles-canvas"></canvas>
+      <div class="summoning-content" id="summoning-content">
+        <!-- Phase 1: Magic Circle -->
+        <div class="magic-circle" id="magic-circle">
+          <div class="circle-ring ring-1"></div>
+          <div class="circle-ring ring-2"></div>
+          <div class="circle-ring ring-3"></div>
+          <div class="circle-core"></div>
+        </div>
+        <p class="summoning-text" id="summoning-text" data-i18n="summoning.pulling">The stars are aligning...</p>
+      </div>
+
+      <!-- Phase 2: Gacha Card -->
+      <div class="gacha-card-wrapper" id="gacha-card-wrapper">
+        <div class="gacha-card" id="gacha-card">
+          <div class="gacha-card-inner" id="gacha-card-inner">
+            <div class="gacha-card-back">
+              <div class="card-back-pattern"></div>
+              <div class="card-back-seal">✦</div>
+              <p class="card-back-text" data-i18n="summoning.tap">Tap to Reveal</p>
+            </div>
+            <div class="gacha-card-front" id="gacha-card-front">
+              <div class="gacha-front-glow" id="gacha-front-glow"></div>
+              <div class="gacha-rarity-tag" id="gacha-rarity-tag"></div>
+              <div class="gacha-portrait">
+                <span class="gacha-portrait-icon" id="gacha-portrait-icon"></span>
+              </div>
+              <div class="gacha-char-name" id="gacha-char-name"></div>
+              <div class="gacha-char-class" id="gacha-char-class"></div>
+            </div>
+          </div>
+        </div>
+        <button class="btn-primary btn-view-details" id="btn-view-details" style="display:none">
+          <i data-lucide="book-open" class="btn-icon"></i>
+          <span data-i18n="summoning.view">View Full Profile</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══ SCREEN 4: RESULT DETAILS ═══ -->
+    <section id="screen-result" class="screen">
+      <div class="result-container">
+        <!-- Character Card -->
+        <div class="result-card" id="result-card">
+          <div class="card-glow" id="card-glow"></div>
+          <div class="card-header-row">
+            <div class="card-rarity" id="card-rarity"></div>
+            <span class="char-id" id="char-id"></span>
+          </div>
+          <div class="card-stars" id="card-stars"></div>
+          <div class="card-portrait" id="portrait-placeholder">
+          </div>
+          <div class="card-info">
+            <h2 class="char-name" id="char-name"></h2>
+            <p class="char-class" id="char-class"></p>
+            <p class="char-desc" id="char-desc"></p>
+          </div>
+        </div>
+
+        <!-- Rarity Statistic -->
+        <div class="rarity-stat" id="rarity-stat">
+          <div class="rarity-stat-icon" id="rarity-stat-icon">💎</div>
+          <p class="rarity-stat-text" id="rarity-stat-text"></p>
+        </div>
+
+        <!-- MBTI Breakdown -->
+        <div class="mbti-result" id="mbti-result">
+          <h3 class="mbti-type" id="mbti-type"></h3>
+          <div class="axis-bars" id="axis-bars"></div>
+        </div>
+
+        <!-- Actions -->
+        <div class="action-buttons">
+          <button class="btn-secondary" id="btn-share">
+            <i data-lucide="share-2" class="btn-icon"></i> <span data-i18n="result.share">Share Results</span>
+          </button>
+          <button class="btn-outline" id="btn-save">
+            <i data-lucide="download" class="btn-icon"></i> <span data-i18n="result.save">Save Image</span>
+          </button>
+          <button class="btn-outline" id="btn-restart">
+            <i data-lucide="rotate-ccw" class="btn-icon"></i> <span data-i18n="result.restart">Play Again</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Hidden canvas for share card generation -->
+      <canvas id="share-canvas" width="600" height="800" style="display:none"></canvas>
+    </section>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
