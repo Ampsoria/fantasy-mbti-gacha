@@ -51,7 +51,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 #app {
-  position: relative; width: 100%; height: 100vh; overflow: hidden;
+  position: relative; width: 100%; height: 100vh; overflow: clip;
   background:
     radial-gradient(ellipse at 20% 50%, rgba(74,14,78,0.1) 0%, transparent 50%), /* void purple */
     radial-gradient(ellipse at 80% 20%, rgba(139,0,33,0.08) 0%, transparent 40%), /* blood red */
@@ -113,6 +113,7 @@ body {
   transform: scale(0.97);
   overflow-y: auto; overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  padding-bottom: 3rem;
 }
 .screen.active { opacity: 1; pointer-events: all; transform: scale(1); z-index: 10; }
 
